@@ -1,0 +1,8 @@
+The kubelet is the contact point between the Worker node and the Master node. They load and destroy pods and containers passed from the Kube-Scheduler on Master, and sends back the status of the node and its pods on regular intervals.
+
+The flow of this happens like so;
+
+The kubelet registers the node on Master
+The Kube-Scheduler may then sends it instructions to load a particular pod and its containers on the Worker node.
+Then, on the Worker node itself, the Kubelet will instruct the container runtime(Docker) to load that particular container on the pod.
+After this, the Kubelet monitors the pod and node and notifies the Master node of any changes that it might need to take action on, based on the configured Desired State.
